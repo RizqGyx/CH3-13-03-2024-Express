@@ -6,3 +6,7 @@
 
 // configurasi npm dan database koneksi
 4. configurasi package.json, spt script dev : nodemon index.js, dll.
+
+NB:
+put = mengharuskan update semua object data
+patch = hanya spesifik data yg mau di update
