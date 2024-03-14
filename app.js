@@ -9,7 +9,7 @@ const port = 3000;
 app.use(express.json());
 
 const customers = JSON.parse(
-  fs.readFileSync(`${__dirname}/data/dummy_data.json`)
+  fs.readFileSync(`${__dirname}/data/dummy.json`)
 );
 
 app.get("/", (req, res) => {
@@ -30,7 +30,7 @@ app.post("/api/v1/customers", (req, res) => {
 
   customers.push(newCustomer);
   fs.writeFile(
-    `${__dirname}/data/dummy_data.json`,
+    `${__dirname}/data/dummy.json`,
     JSON.stringify(customers),
     (err) => {
       res.status(201).json({
