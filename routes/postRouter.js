@@ -1,3 +1,5 @@
+const { fs, customers } = require("./module");
+
 const addNewCostumers = (req, res, next) => {
   console.log(req.body);
   const newCustomer = req.body;

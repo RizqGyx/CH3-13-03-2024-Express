@@ -1,3 +1,5 @@
+const { fs, customers } = require("./module");
+
 const updatePatchById = (req, res, next) => {
   console.log(req.params);
   const id = req.params.id;

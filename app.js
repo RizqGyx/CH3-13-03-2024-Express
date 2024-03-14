@@ -1,5 +1,4 @@
 const express = require("express");
-const fs = require("fs");
 // const morgan = require("morgan");
 
 // Refactor
@@ -13,8 +12,6 @@ const port = 3000;
 
 // Middleware Untuk Membaca Json Dari Request Body
 app.use(express.json());
-
-const customers = JSON.parse(fs.readFileSync(`${__dirname}/data/dummy.json`));
 
 app.get("/", getRoute.defaultRouter);
 app.get("/api/v1/customers/:id/:name/:position", getRoute.dataUsingParams);

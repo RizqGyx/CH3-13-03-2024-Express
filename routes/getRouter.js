@@ -1,3 +1,5 @@
+const { fs, customers } = require("./module");
+
 const defaultRouter = (req, res, next) => {
   res.send("Welcome To Get Express");
 };
