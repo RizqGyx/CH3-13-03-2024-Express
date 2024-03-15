@@ -1,13 +1,10 @@
 const { fs, customers } = require("./module");
 
-const defaultRouter = (req, res, next) => {
-  res.send("Welcome To Get Express");
-};
-
 const allCustomersData = (req, res, next) => {
   res.status(200).json({
     status: "success",
     totalData: customers.length,
+    requestAt: req.requestTime,
     data: { customers },
   });
 };
@@ -52,4 +49,4 @@ const dataUsingParams = (req, res, next) => {
   });
 };
 
-module.exports = { defaultRouter, allCustomersData, dataById, dataUsingParams };
+module.exports = { allCustomersData, dataById, dataUsingParams };
