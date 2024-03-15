@@ -5,7 +5,6 @@ const morgan = require("morgan");
 const customerRoute = require("./routes/customerRoutes");
 
 const app = express();
-const port = 3000;
 
 // Middleware Untuk Membaca Json Dari Request Body
 app.use(express.json());
@@ -37,6 +36,4 @@ app.use("/api/v1/customers", customerRoute);
 //   .get(getRoute.allCustomersData)
 //   .post(postRoute.addNewCostumers);
 
-app.listen(port, () => {
-  console.log(`App Running On : http://localhost:${port}`);
-});
+module.exports = app;
