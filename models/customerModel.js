@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const DB = process.env.DATABASE;
 
 mongoose.connect(DB, { useNewUrlParser: true }).then((con) => {
-  // console.log(con);
   console.log("Connection Success");
 });
 
@@ -44,8 +43,8 @@ const customerSchema = mongoose.Schema({
   },
   gender: {
     type: String,
-    required: [true, "Gender Must Be Binary"],
-    default: "Anonymous",
+    required: true,
+    enum: ["male", "female"],
   },
   company: {
     type: String,
@@ -53,7 +52,7 @@ const customerSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "Email Cannot Be Empty"],
     unique: true,
   },
   phone: {
@@ -107,43 +106,5 @@ const customerSchema = mongoose.Schema({
 });
 
 const Customer = mongoose.model("Customer", customerSchema);
-
-// const customerTest = new Customer({
-//   index: 3,
-//   guid: "05a3eb4e-b1a3-40d1-b974-e8b713b61df1",
-//   isActive: false,
-//   balance: "$1,925.28",
-//   picture: "http://placehold.it/32x32",
-//   age: 29,
-//   eyeColor: "brown",
-//   name: "Melba Ferguson",
-//   gender: "female",
-//   company: "CORECOM",
-//   email: "melbaferguson@corecom.com",
-//   phone: "+1 (821) 470-2946",
-//   address: "848 Newkirk Avenue, Nicut, Oklahoma, 4021",
-//   about:
-//     "Consectetur in do et exercitation anim irure irure est. Anim eu in voluptate qui velit elit voluptate labore ea pariatur labore consequat enim. Qui sit amet dolore laborum mollit nulla consectetur aliqua aliquip labore quis. Adipisicing do adipisicing cupidatat Lorem deserunt labore ad ullamco ullamco irure sit ipsum.\r\n",
-//   registered: new Date("2023-04-02T08:51:20-07:00"),
-//   latitude: 17.529952,
-//   longitude: 147.923381,
-//   tags: ["velit", "aliqua", "magna", "qui", "tempor", "eiusmod", "cillum"],
-//   friends: [
-//     { id: 0, name: "Simon Kemp" },
-//     { id: 1, name: "Taylor Savage" },
-//     { id: 2, name: "Debora Pace" },
-//   ],
-//   greeting: "Hello, Melba Ferguson! You have 3 unread messages.",
-//   favoriteFruit: "strawberry",
-// });
-
-// customerTest
-//   .save()
-//   .then((doc) => {
-//     console.log(doc);
-//   })
-//   .catch((err) => {
-//     console.log("ERROR : " + err);
-//   });
 
 module.exports = Customer;

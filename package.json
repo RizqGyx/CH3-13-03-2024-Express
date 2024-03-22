@@ -1,14 +1,18 @@
 {
   "name": "ch3-13-03-2024-express",
   "version": "1.0.0",
-  "description": "",
+  "description": "Live Coding express CH3",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "import-data": "node ./data/seeder.js --import",
+    "clear-data": "node ./data/seeder.js --delete"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express"
+  ],
+  "author": "Muhammad Rizki",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
